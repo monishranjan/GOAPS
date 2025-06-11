@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,6 +13,27 @@ import { MdVpnKey } from "react-icons/md";
 const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
+
+  const [showMenu, setShowMenu] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    if (showMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showMenu]);
 
   const [captcha, setCaptcha] = useState({ a: 0, b: 0 });
   const [captchaInput, setCaptchaInput] = useState("");
@@ -90,9 +111,25 @@ const Login = () => {
         {/* Navbar */}
         <div className="w-full bg-[#2c3a13] text-white px-6 py-3 my-4 flex justify-between items-center">
           <span className="text-lg font-semibold"></span>
-          <button className="text-white px-4 py-2 font-semibold text-lg">
+          <button
+            onClick={() => setShowMenu((prev) => !prev)}
+            className="text-white px-4 py-2 font-semibold text-lg hover:cursor-pointer"
+          >
             Quick Links
           </button>
+
+          {/* Dropdown Menu */}
+          {showMenu && (
+            <div className="absolute right-6 mt-2 bg-white text-black rounded shadow-lg z-10 w-48">
+              <ul className="divide-y divide-gray-200">
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Important Dates</li>
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Eligibility</li>
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Application Fees</li>
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Syllabus</li>
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Contact Us</li>
+              </ul>
+            </div>
+          )}
         </div>
 
         <div className="forms w-full px-48 mt-1">
@@ -166,9 +203,8 @@ const Login = () => {
                 type="number"
                 value={captchaInput}
                 onChange={(e) => setCaptchaInput(e.target.value)}
-                className={`w-full text-lg p-4 mt-4 border rounded ${
-                  captchaError ? "border-red-500" : "border-gray-300"
-                } focus:border-black`}
+                className={`w-full text-lg p-4 mt-4 border rounded ${captchaError ? "border-red-500" : "border-gray-300"
+                  } focus:border-black`}
                 required
               />
               {captchaError && (
@@ -180,7 +216,7 @@ const Login = () => {
               {/* Login Button with Lock Icon */}
               <button
                 type="submit"
-                className="hover:cursor-pointer w-full sm:w-auto flex items-center justify-center gap-4 py-4 px-6 bg-[#2c3a13] text-white rounded"
+                className="hover:cursor-pointer w-full sm:w-auto flex items-center justify-center gap-4 py-3 px-5 bg-[#2c3a13] text-white rounded"
               >
                 <MdVpnKey size={24} />
                 <p className="text-lg font-normal">LOGIN</p>

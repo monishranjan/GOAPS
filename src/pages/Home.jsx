@@ -219,7 +219,7 @@ const Home = () => {
                         #
                       </sup>
                     </h1>
-                    <div className=" w-full p-2 border font-medium border-black rounded text-black"> 46.28 </div>
+                    <div className=" w-full p-2 border font-medium border-black rounded text-black"> 56.28 </div>
                   </div>
                   <div className="flex gap-8">
                     <h1 className="w-2/6">
