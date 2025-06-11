@@ -149,7 +149,7 @@ const Home = () => {
       {/* Modals */}
       {/* Result Modal */}
       {isResultOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-10 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/75 bg-opacity-10 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg w-[80%] h-[90%]">
             <div className="font-normal border-b border-gray-300 mb-6">
               <h1 className="text-xl text-black px-6 py-4">
