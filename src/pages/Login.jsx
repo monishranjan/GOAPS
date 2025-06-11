@@ -43,7 +43,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const correctEmail = "user@example.com";
+  const correctEmail = "monishranjan9@gmail.com";
   const correctPassword = "password123";
 
   const generateCaptcha = () => {
