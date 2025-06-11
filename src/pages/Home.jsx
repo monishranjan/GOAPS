@@ -262,7 +262,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <h1 className="text-base italic mt-6 ml-6">
+              <h1 className="text-base italic mt-10 ml-6">
                 <sup className="relative -top-1">#</sup>
                 Normalised marks in case of multisession papers (CE and CS).
               </h1>
