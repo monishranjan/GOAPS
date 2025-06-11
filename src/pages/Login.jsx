@@ -95,7 +95,7 @@ const Login = () => {
           </button>
         </div>
 
-        <div className="forms w-full px-48">
+        <div className="forms w-full px-48 mt-1">
           <div className="p-4 bg-[#ebf3dd] text-white w-full rounded-xl flex gap-2">
             {/* Form Header */}
             <svg
@@ -180,7 +180,7 @@ const Login = () => {
               {/* Login Button with Lock Icon */}
               <button
                 type="submit"
-                className="w-full sm:w-auto flex items-center justify-center gap-4 py-4 px-6 bg-[#2c3a13] text-white rounded"
+                className="hover:cursor-pointer w-full sm:w-auto flex items-center justify-center gap-4 py-4 px-6 bg-[#2c3a13] text-white rounded"
               >
                 <MdVpnKey size={24} />
                 <p className="text-lg font-normal">LOGIN</p>
@@ -189,8 +189,8 @@ const Login = () => {
               {/* Text Button (e.g., Forgot Password) */}
               <button
                 type="button"
-                className="text-[#2c3a13] text-lg"
-                onClick={() => alert("Forgot Password clicked")}
+                className="text-[#2c3a13] text-lg hover:cursor-pointer"
+                onClick={() => navigate("/forgot-password")}
               >
                 FORGOT CREDENTIALS?
               </button>
