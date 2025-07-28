@@ -108,16 +108,25 @@ const Home = () => {
                   VIEW RESULT (CS)
                 </button>
               </div>
-              <div className="mt-6 flex justify-end text-white font-medium text-base border-b border-gray-400 pb-3">
+              <div className="mt-6 flex justify-end text-white font-medium text-base border-b border-[#ced5c2] pb-3">
                 <button
                   className="px-6 py-2 rounded-md bg-gray-400 text-white cursor-not-allowed opacity-70"
                   onClick={() =>
-                    alert("This feature is currently unavailable. Please check back later.")
+                    alert(
+                      "This feature is currently unavailable. Please check back later."
+                    )
                   }
                 >
                   VIEW RESPONSES (CS)
                 </button>
-
+              </div>
+              <div className="mt-6 flex justify-end text-white font-medium text-base border-b border-gray-400 pb-3">
+                <button
+                  className="px-6 py-2 rounded-md bg-[#2c3a13] hover:cursor-pointer"
+                  onClick={() => navigate("/ccmt-admissions")}
+                >
+                  COUNSELLING PROCESS
+                </button>
               </div>
 
               <div className="flex justify-between bg-white p-4 mt-6 rounded-lg shadow-md hover:cursor-pointer">
@@ -164,47 +173,67 @@ const Home = () => {
                     <label className="block text-black text-base font-normal mb-1">
                       Name
                     </label>
-                    <div className=" w-full p-2 border font-medium border-black rounded text-black">MONISH RANJAN</div>
+                    <div className=" w-full p-2 border font-medium border-black rounded text-black">
+                      MONISH RANJAN
+                    </div>
                   </div>
                   <div className="mb-6">
                     <label className="block text-black text-base font-normal mb-1">
                       Registration Number
                     </label>
-                    <div className=" w-full p-2 border font-medium border-black rounded text-black">CS25S24004015</div>
+                    <div className=" w-full p-2 border font-medium border-black rounded text-black">
+                      CS25S24004015
+                    </div>
                   </div>
                   <div className="mb-6">
                     <label className="block text-black text-base font-normal mb-1">
                       Gender
                     </label>
-                    <div className=" w-full p-2 border font-medium border-black rounded text-black">Male</div>
+                    <div className=" w-full p-2 border font-medium border-black rounded text-black">
+                      Male
+                    </div>
                   </div>
                   <div className="mb-6">
                     <label className="block text-black text-base font-normal mb-1">
                       Parent's/Guardian's Name
                     </label>
-                    <div className=" w-full p-2 border font-medium border-black rounded text-black">KALPANA SINGH</div>
+                    <div className=" w-full p-2 border font-medium border-black rounded text-black">
+                      KALPANA SINGH
+                    </div>
                   </div>
                   <div className="mb-6">
                     <label className="block text-black text-base font-normal mb-1">
                       Date of Birth (YYYY-MM-DD)
                     </label>
-                    <div className=" w-full p-2 border font-medium border-black rounded text-black">2000-11-29</div>
+                    <div className=" w-full p-2 border font-medium border-black rounded text-black">
+                      2000-11-29
+                    </div>
                   </div>
                   <div className="mb-8">
                     <label className="block text-black text-base font-normal mb-1">
                       Test Paper
                     </label>
-                    <div className=" w-full p-2 border font-medium border-black rounded text-black">Computer Science and Information Technology (CS)</div>
+                    <div className=" w-full p-2 border font-medium border-black rounded text-black">
+                      Computer Science and Information Technology (CS)
+                    </div>
                   </div>
                 </div>
 
                 <div className="text-black mx-6 w-1/3 justify-center mt-8">
                   <div className="flex flex-col items-center">
-                    <img src="src\assets\image1.png" alt="Photograph" className="h-auto w-[200px] border border-black" />
+                    <img
+                      src="src\assets\image1.png"
+                      alt="Photograph"
+                      className="h-auto w-[200px] border border-black"
+                    />
                     <h1 className="mt-2">Photograph</h1>
                   </div>
                   <div className="flex flex-col items-center mt-12">
-                    <img src="src\assets\image2.png" alt="Signature" className="h-auto w-[200px] border border-black" />
+                    <img
+                      src="src\assets\image2.png"
+                      alt="Signature"
+                      className="h-auto w-[200px] border border-black"
+                    />
                     <h1 className="mt-2">Signature</h1>
                   </div>
                 </div>
@@ -215,49 +244,56 @@ const Home = () => {
                   <div className="flex items-center justify-start gap-8 mb-8">
                     <h1 className="w-2/6">
                       Marks out of 100
-                      <sup className="font-medium relative -top-1">
-                        #
-                      </sup>
+                      <sup className="font-medium relative -top-1">#</sup>
                     </h1>
-                    <div className=" w-full p-2 border font-medium border-black rounded text-black"> 56.28 </div>
+                    <div className=" w-full p-2 border font-medium border-black rounded text-black">
+                      {" "}
+                      56.28{" "}
+                    </div>
                   </div>
                   <div className="flex gap-8">
                     <h1 className="w-2/6">
                       Qualifying Marks
-                      <sup className="font-medium relative -top-1">
-                        ##
-                      </sup>
+                      <sup className="font-medium relative -top-1">##</sup>
                     </h1>{" "}
                     <div className="flex gap-3 w-full items-start">
                       <div className="flex flex-col items-center">
-                        <div className=" w-full px-8 py-2 border font-medium border-black rounded text-black text-center">29.2</div>
+                        <div className=" w-full px-8 py-2 border font-medium border-black rounded text-black text-center">
+                          29.2
+                        </div>
                         <h1 className="text-base mt-1 text-center">General</h1>
                       </div>
                       <div className="flex flex-col items-center">
-                        <div className=" w-full py-2 px-16 border font-medium border-black rounded text-black text-center">26.2</div>
-                        <h1 className="text-base mt-1 text-center">OBC-NCL/EWS</h1>
+                        <div className=" w-full py-2 px-16 border font-medium border-black rounded text-black text-center">
+                          26.2
+                        </div>
+                        <h1 className="text-base mt-1 text-center">
+                          OBC-NCL/EWS
+                        </h1>
                       </div>
                       <div className="flex flex-col items-center">
-                        <div className=" w-full px-8 py-2 border font-medium border-black rounded text-black text-center">19.4</div>
-                        <h1 className="text-base mt-1 text-center">SC/ST/PwD</h1>
+                        <div className=" w-full px-8 py-2 border font-medium border-black rounded text-black text-center">
+                          19.4
+                        </div>
+                        <h1 className="text-base mt-1 text-center">
+                          SC/ST/PwD
+                        </h1>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="w-2/5">
                   <div className="flex items-center gap-8 mb-8">
-                    <h1 className="w-3/4">
-                      All India Rank in this test paper
-                    </h1>
-                    <div className=" w-full p-2 border font-medium border-black rounded text-black">4283</div>
-
+                    <h1 className="w-3/4">All India Rank in this test paper</h1>
+                    <div className=" w-full p-2 border font-medium border-black rounded text-black">
+                      4283
+                    </div>
                   </div>
                   <div className="flex items-center gap-8">
-                    <h1 className="w-3/4">
-                      GATE Score
-                    </h1>
-                    <div className=" w-full p-2 border font-medium border-black rounded text-black">593</div>
-
+                    <h1 className="w-3/4">GATE Score</h1>
+                    <div className=" w-full p-2 border font-medium border-black rounded text-black">
+                      593
+                    </div>
                   </div>
                 </div>
               </div>
