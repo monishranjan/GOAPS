@@ -1,23 +1,17 @@
 import Header from "../components/Admissions/Header.jsx";
 import Footer from "../components/Admissions/Footer.jsx";
+import LoginBox from "../components/Admissions/LoginBox.jsx";
 
 function Admissions() {
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="w-full bg-[#ebebeb] px-96 py-4">
-        <div className="loginContainer shadow-2xl flex items-center justify-center bg-white rounded-xl">
-          <div className="leftSide pl-3.5 w-1/2">
-            <h1 className="text-center font-semibold text-xl mb-3">
-              Registered Candidates Sign In
-            </h1>
-            <div className="border border-gray-400 p-7 rounded-xl">
-              <div className="flex">
-                <h1 className="">Counselling</h1>
-              </div>
-            </div>
+      <main className="w-full bg-[#ebebeb] px-88 py-9">
+        <div className="loginContainer shadow-2xl flex items-start justify-start bg-white rounded-xl">
+          <div className="leftSide pl-3.5 w-3/5 mt-6">
+            <LoginBox />
           </div>
-          <div className="rightSide pl-3.5 w-1/2">
+          <div className="rightSide pl-3.5 w-2/5">
             <div
               className="relative w-full rounded-tr-xl rounded-br-xl overflow-hidden"
               style={{
