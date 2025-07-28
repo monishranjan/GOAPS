@@ -1,9 +1,9 @@
-import TopBar from "../components/CounsellingTopbar";
-import CounsellingHeader from "../components/CounsellingHeader";
-import CounsellingNavbar from "../components/CounsellingNavbar";
-import CounsellingLatestNews from "../components/LatestNewsTicker";
-import NewsEvents from "../components/CounsellingNewsEvent";
-import PublicNotices from "../components/CounsellingPublicNotices";
+import TopBar from "../components/counsellingComps/CounsellingTopbar";
+import CounsellingHeader from "../components/counsellingComps/CounsellingHeader";
+import CounsellingNavbar from "../components/counsellingComps/CounsellingNavbar";
+import CounsellingLatestNews from "../components/counsellingComps/LatestNewsTicker";
+import NewsEvents from "../components/counsellingComps/CounsellingNewsEvent";
+import PublicNotices from "../components/counsellingComps/CounsellingPublicNotices";
 import Footer from "../components/Footer";
 
 const CounsellingHome = () => {

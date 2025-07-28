@@ -7,7 +7,7 @@ const LoginBox = () => {
 
     // Hardcoded values (simulate DB)
     const validCredentials = {
-        regId: "GATE12345678",
+        regId: "R509V67",
         password: "password@123",
     };
 
@@ -41,7 +41,7 @@ const LoginBox = () => {
         }
 
         // Success: redirect
-        navigate("/admission-home");
+        navigate("/admissions-home");
     };
 
     return (
@@ -127,7 +127,7 @@ const LoginBox = () => {
                 </div>
 
                 <div className="h-[1px] bg-gray-200 my-6"></div>
-                <div className="h-[1px] bg-gray-200 mt-6 mb-8"></div>
+                <div className="h-[1px] bg-gray-200 mt- mb-8"></div>
             </form>
         </div>
     );

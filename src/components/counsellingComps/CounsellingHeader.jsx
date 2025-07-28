@@ -1,6 +1,6 @@
 import { React } from "react";
-import LeftLogo from "../assets/logos/counselling1.png";
-import RightLogo from "../assets/logos/counselling2.png";
+import LeftLogo from "../../assets/logos/counselling1.png";
+import RightLogo from "../../assets/logos/counselling2.png";
 
 const CounsellingHeader = () => {
   return (
