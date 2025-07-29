@@ -4,9 +4,10 @@ import Navbar from './Navbar';
 import { FaCircleCheck } from 'react-icons/fa6';
 
 import AppliedChoice from './AdmissionHomeComps/AppliedChoices';
+import CandidateProfiles from './AdmissionHomeComps/CandidateProfile';
 
 // Dummy Components (Replace these with your actual components)
-const CandidateProfile = () => <div>Candidate Profile Component</div>;
+const CandidateProfile = () => <CandidateProfiles />;
 const AvailableChoices = () => <div>Available Choices Component</div>;
 const AppliedChoices = () => <AppliedChoice />;
 const ChoiceFilling = () => <div>Choice Filling Component</div>;
@@ -14,7 +15,7 @@ const ChoiceLocking = () => <div>Choice Locking Component</div>;
 const Dashboard = () => <div>Dashboard Component (Default)</div>;
 
 const AdmissionHome = () => {
-  const [activeSection, setActiveSection] = useState('AppliedChoices');
+  const [activeSection, setActiveSection] = useState('CandidateProfile');
 
   const navItemClass = (section) =>
     activeSection === section
@@ -24,7 +25,7 @@ const AdmissionHome = () => {
   const disabledClass = 'text-gray-400 cursor-not-allowed opacity-50';
 
   // Set enable/disable logic per requirement
-  const isEnabled = (section) => section === 'AppliedChoices';
+  const isEnabled = (section) => section === 'CandidateProfile' || section === 'AppliedChoices';
 
 
   const renderComponent = () => {

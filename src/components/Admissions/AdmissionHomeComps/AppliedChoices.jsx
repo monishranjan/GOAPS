@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { appliedChoices as dummyData } from "./data/appliedChoices";
 
 import jsPDF from "jspdf";
@@ -9,21 +9,66 @@ const AppliedChoices = () => {
   const [filtered, setFiltered] = useState([]);
   const displayList = filtered.length ? filtered : dummyData;
 
+  const [selectedInstitute, setSelectedInstitute] = useState("All Institutes");
+  const [selectedProgram, setSelectedProgram] = useState("All Programs");
+
+
+  const uniqueInstitutes = [...new Set(dummyData.map(item => item.institute))];
+  const uniquePrograms = [...new Set(dummyData.map(item => item.program))];
+
+  useEffect(() => {
+    const term = search.toLowerCase();
+
+    const results = dummyData.filter(item => {
+      const matchesText =
+        item.institute.toLowerCase().includes(term) ||
+        item.program.toLowerCase().includes(term) ||
+        item.address.toLowerCase().includes(term) ||
+        item.pincode.includes(term);
+
+      const matchesInstitute =
+        selectedInstitute === "All Institutes" || item.institute === selectedInstitute;
+
+      const matchesProgram =
+        selectedProgram === "All Programs" || item.program === selectedProgram;
+
+      return matchesText && matchesInstitute && matchesProgram;
+    });
+
+    setFiltered(results);
+  }, [search, selectedInstitute, selectedProgram]);
+
+
   const handleSearch = () => {
     const term = search.toLowerCase();
-    const results = dummyData.filter(item =>
-      item.institute.toLowerCase().includes(term) ||
-      item.program.toLowerCase().includes(term) ||
-      item.address.toLowerCase().includes(term) ||
-      item.pincode.includes(term)
-    );
+
+    const results = dummyData.filter(item => {
+      const matchesText =
+        item.institute.toLowerCase().includes(term) ||
+        item.program.toLowerCase().includes(term) ||
+        item.address.toLowerCase().includes(term) ||
+        item.pincode.includes(term);
+
+      const matchesInstitute =
+        selectedInstitute === "All Institutes" || item.institute === selectedInstitute;
+
+      const matchesProgram =
+        selectedProgram === "All Programs" || item.program === selectedProgram;
+
+      return matchesText && matchesInstitute && matchesProgram;
+    });
+
     setFiltered(results);
   };
 
+
   const clearFilters = () => {
     setSearch("");
+    setSelectedInstitute("All Institutes");
+    setSelectedProgram("All Programs");
     setFiltered([]);
   };
+
 
   const handlePrint = () => {
     const doc = new jsPDF();
@@ -51,16 +96,30 @@ const AppliedChoices = () => {
         {/* Filters */}
         <div className="space-y-4 shrink-0">
           <div className="flex gap-4 flex-wrap">
-            <select className="border px-3 py-2 rounded text-sm">
-              <option>All Institute Types</option>
-            </select>
-            <select className="border px-3 py-2 rounded text-sm">
+            <select
+              className="border px-3 py-2 rounded text-sm"
+              value={selectedInstitute}
+              onChange={(e) => setSelectedInstitute(e.target.value)}
+            >
               <option>All Institutes</option>
+              {uniqueInstitutes.map((inst, index) => (
+                <option key={index} value={inst}>{inst}</option>
+              ))}
             </select>
-            <select className="border px-3 py-2 rounded text-sm">
+
+            <select
+              className="border px-3 py-2 rounded text-sm"
+              value={selectedProgram}
+              onChange={(e) => setSelectedProgram(e.target.value)}
+            >
               <option>All Programs</option>
+              {uniquePrograms.map((prog, index) => (
+                <option key={index} value={prog}>{prog}</option>
+              ))}
             </select>
+
           </div>
+
 
           <div className="flex items-center gap-2 w-full">
             <div className="relative flex-1">
