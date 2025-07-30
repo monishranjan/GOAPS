@@ -47,14 +47,12 @@ const CounsellingHome = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/admissions"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/admissions"
                     className="hover:underline hover:cursor-pointer"
                   >
                     View Seat allotment result of Round 5 (Special Round II)
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
