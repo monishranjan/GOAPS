@@ -3,7 +3,7 @@ import { appliedChoices } from "./data/appliedChoices";
 import profilePic from "../../../assets/image1.png";
 
 const CandidateProfile = () => {
-  const totalChoices = appliedChoices.length;
+  // const totalChoices = appliedChoices.length;
   const rejectedCount = appliedChoices.filter(
     (choice) => choice.status === "Rejected"
   ).length;
