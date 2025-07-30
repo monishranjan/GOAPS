@@ -19,7 +19,7 @@ const AdmissionHome = () => {
 
   const navItemClass = (section) =>
     activeSection === section
-      ? 'bg-blue-100 text-blue-800 font-semibold cursor-pointer'
+      ? 'bg-blue-100 text-[#052963] font-semibold cursor-pointer'
       : 'hover:bg-blue-50 cursor-pointer';
 
   const disabledClass = 'text-gray-400 cursor-not-allowed opacity-50';
@@ -54,7 +54,7 @@ const AdmissionHome = () => {
         <div className="w-3/12 space-y-5">
           {/* Available Services */}
           <div className="bg-white border rounded shadow">
-            <h2 className="bg-blue-100 text-blue-800 text-base font-semibold px-4 py-2 rounded-t">
+            <h2 className="bg-[#052963] text-white text-base font-semibold px-4 py-2 rounded-t">
               Available Services
             </h2>
             <ul className="text-sm">
@@ -79,7 +79,7 @@ const AdmissionHome = () => {
 
           {/* Documents */}
           <div className="bg-white border rounded shadow">
-            <h2 className="bg-blue-100 text-blue-800 text-base font-semibold px-4 py-2 rounded-t">
+            <h2 className="bg-[#052963] text-white text-base font-semibold px-4 py-2 rounded-t">
               Documents
             </h2>
             <ul className="text-sm">
@@ -91,7 +91,7 @@ const AdmissionHome = () => {
 
           {/* Verification Status */}
           <div className="bg-white border rounded shadow">
-            <h2 className="bg-blue-100 text-blue-800 text-base font-semibold px-4 py-2 rounded-t">
+            <h2 className="bg-[#052963] text-white text-base font-semibold px-4 py-2 rounded-t">
               Verification Status
             </h2>
             <ul className="text-sm px-4 py-2 space-y-2">
@@ -106,7 +106,7 @@ const AdmissionHome = () => {
 
           {/* Contact Us */}
           <div className="bg-white border rounded shadow">
-            <h2 className="bg-blue-100 text-blue-800 text-base font-semibold px-4 py-2 rounded-t">
+            <h2 className="bg-[#052963] text-white text-base font-semibold px-4 py-2 rounded-t">
               Contact Us
             </h2>
             <div className="text-sm text-gray-700 px-4 py-2 space-y-1">
