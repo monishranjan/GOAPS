@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Navbar from './Navbar';
 import { FaCircleCheck } from 'react-icons/fa6';
 
 import AppliedChoice from './AdmissionHomeComps/AppliedChoices';
 import CandidateProfiles from './AdmissionHomeComps/CandidateProfile';
+import DocumentVerification from './AdmissionHomeComps/DocumentVerification';
 
 // Dummy Components (Replace these with your actual components)
 const CandidateProfile = () => <CandidateProfiles />;
@@ -13,8 +14,13 @@ const AppliedChoices = () => <AppliedChoice />;
 const ChoiceFilling = () => <div>Choice Filling Component</div>;
 const ChoiceLocking = () => <div>Choice Locking Component</div>;
 const Dashboard = () => <div>Dashboard Component (Default)</div>;
+const DocumentVerify = () => <DocumentVerification />;
 
 const AdmissionHome = () => {
+  useEffect(() => {
+    document.title = "Online Counselling System";
+  }, []);
+
   const [activeSection, setActiveSection] = useState('CandidateProfile');
 
   const navItemClass = (section) =>
@@ -25,7 +31,7 @@ const AdmissionHome = () => {
   const disabledClass = 'text-gray-400 cursor-not-allowed opacity-50';
 
   // Set enable/disable logic per requirement
-  const isEnabled = (section) => section === 'CandidateProfile' || section === 'AppliedChoices';
+  const isEnabled = (section) => section === 'CandidateProfile' || section === 'AppliedChoices' || section === 'DocumentVerification';
 
 
   const renderComponent = () => {
@@ -36,6 +42,8 @@ const AdmissionHome = () => {
         return <AvailableChoices />;
       case 'AppliedChoices':
         return <AppliedChoices />;
+      case 'DocumentVerification':
+        return <DocumentVerify />;
       case 'ChoiceFilling':
         return <ChoiceFilling />;
       case 'ChoiceLocking':
@@ -64,6 +72,7 @@ const AdmissionHome = () => {
                 { label: 'Choice Filling', key: 'ChoiceFilling' },
                 { label: 'Applied Choices', key: 'AppliedChoices' },
                 { label: 'Choice Locking', key: 'ChoiceLocking' },
+                { label: 'Document Verification', key: 'DocumentVerification' },
               ].map(({ label, key }) => (
                 <li
                   key={key}

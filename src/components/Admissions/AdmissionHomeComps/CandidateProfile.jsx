@@ -3,19 +3,16 @@ import { appliedChoices } from "./data/appliedChoices";
 import profilePic from "../../../assets/image1.png";
 
 const CandidateProfile = () => {
-  // const totalChoices = appliedChoices.length;
+  const appliedCount = appliedChoices.length;
   const rejectedCount = appliedChoices.filter(
     (choice) => choice.status === "Rejected"
   ).length;
   const approvedCount = appliedChoices.filter(
-    (choice) => choice.status === "Partially Selected"
+    (choice) => choice.status === "Approved"
   ).length;
   const pendingCount = appliedChoices.filter(
     (choice) => choice.status === "Pending"
   ).length;
-  // const appliedCount = appliedChoices.filter(
-  //   (choice) => choice.status === "Applied"
-  // ).length;
 
   const candidate = {
     name: "Monish Ranjan",
@@ -89,7 +86,7 @@ const CandidateProfile = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-white">
         <div className="bg-blue-500 p-4 rounded shadow">
           <p className="text-sm">Applied</p>
-          <p className="text-xl font-bold">25</p>
+          <p className="text-xl font-bold">{appliedCount}</p>
         </div>
         <div className="bg-green-500 p-4 rounded shadow">
           <p className="text-sm">Approved</p>

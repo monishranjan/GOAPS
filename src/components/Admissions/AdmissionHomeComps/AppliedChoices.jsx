@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { appliedChoices as dummyData } from "./data/appliedChoices";
-
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
@@ -11,10 +10,14 @@ const AppliedChoices = () => {
 
   const [selectedInstitute, setSelectedInstitute] = useState("All Institutes");
   const [selectedProgram, setSelectedProgram] = useState("All Programs");
-
+  const [selectedStatus, setSelectedStatus] = useState("All Statuses");
 
   const uniqueInstitutes = [...new Set(dummyData.map(item => item.institute))];
   const uniquePrograms = [...new Set(dummyData.map(item => item.program))];
+  const statusOptions = [
+    "All Statuses",
+    ...Array.from(new Set(dummyData.map((item) => item.status))),
+  ];
 
   useEffect(() => {
     const term = search.toLowerCase();
@@ -32,12 +35,14 @@ const AppliedChoices = () => {
       const matchesProgram =
         selectedProgram === "All Programs" || item.program === selectedProgram;
 
-      return matchesText && matchesInstitute && matchesProgram;
+      const matchesStatus =
+        selectedStatus === "All Statuses" || item.status === selectedStatus;
+
+      return matchesText && matchesInstitute && matchesProgram && matchesStatus;
     });
 
     setFiltered(results);
-  }, [search, selectedInstitute, selectedProgram]);
-
+  }, [search, selectedInstitute, selectedProgram, selectedStatus]);
 
   const handleSearch = () => {
     const term = search.toLowerCase();
@@ -61,14 +66,13 @@ const AppliedChoices = () => {
     setFiltered(results);
   };
 
-
   const clearFilters = () => {
     setSearch("");
     setSelectedInstitute("All Institutes");
     setSelectedProgram("All Programs");
+    setSelectedStatus("All Statuses");
     setFiltered([]);
   };
-
 
   const handlePrint = () => {
     const doc = new jsPDF();
@@ -88,6 +92,20 @@ const AppliedChoices = () => {
     });
 
     doc.save("applied-choices.pdf");
+  };
+
+  // Badge styling based on status
+  const getStatusBadge = (status) => {
+    switch (status) {
+      case "Approved":
+        return "bg-green-100 text-green-700";
+      case "Rejected":
+        return "bg-red-100 text-red-700";
+      case "Applied":
+        return "bg-yellow-100 text-yellow-700";
+      default:
+        return "bg-gray-100 text-gray-700";
+    }
   };
 
   return (
@@ -118,8 +136,16 @@ const AppliedChoices = () => {
               ))}
             </select>
 
+            <select
+              className="border px-3 py-2 rounded text-sm"
+              value={selectedStatus}
+              onChange={(e) => setSelectedStatus(e.target.value)}
+            >
+              {statusOptions.map((status, index) => (
+                <option key={index} value={status}>{status}</option>
+              ))}
+            </select>
           </div>
-
 
           <div className="flex items-center gap-2 w-full">
             <div className="relative flex-1">
@@ -156,33 +182,26 @@ const AppliedChoices = () => {
         {/* Scrollable Table */}
         <div className="overflow-y-auto mt-4 grow">
           <div className="overflow-x-auto">
-            <table className="min-w-full bg-white border rounded text-sm">
+            <table className="min-w-full bg-white border rounded text-sm table-fixed">
               <thead className="bg-[#052963] text-white sticky top-0 z-10">
                 <tr>
-                  <th className="px-4 py-2">Sr. No</th>
-                  <th className="px-4 py-2">Institute Name</th>
-                  <th className="px-4 py-2">Program</th>
-                  <th className="px-4 py-2">Choice #</th>
-                  <th className="px-4 py-2">Status</th>
+                  <th className="px-4 py-2 w-16 text-left">Sr. No</th>
+                  <th className="px-4 py-2 w-1/4 text-left">Institute Name</th>
+                  <th className="px-4 py-2 w-1/4 text-left">Program</th>
+                  <th className="px-4 py-2 w-20 text-left">Choice #</th>
+                  <th className="px-4 py-2 w-28 text-left">Status</th>
                 </tr>
               </thead>
               <tbody>
                 {displayList.map((item, idx) => (
                   <tr key={idx} className="border-t">
-                    <td className="px-4 py-2">{idx + 1}</td>
-                    <td className="px-4 py-2">{item.institute}</td>
-                    <td className="px-4 py-2">{item.program}</td>
-                    <td className="px-4 py-2">{item.choiceNumber}</td>
-                    <td className="px-4 py-2">
+                    <td className="px-4 py-2 text-left">{idx + 1}</td>
+                    <td className="px-4 py-2 text-left">{item.institute}</td>
+                    <td className="px-4 py-2 text-left">{item.program}</td>
+                    <td className="px-4 py-2 text-left">{item.choiceNumber}</td>
+                    <td className="px-4 py-2 text-left">
                       <span
-                        className={`px-2 py-1 rounded font-medium text-xs ${item.status === "Confirmed"
-                          ? "bg-green-100 text-green-700"
-                          : item.status === "Pending"
-                            ? "bg-yellow-100 text-yellow-700"
-                            : item.status === "Rejected"
-                              ? "bg-red-100 text-red-700"
-                              : "bg-gray-100 text-gray-700"
-                          }`}
+                        className={`px-2 py-1 rounded font-medium text-xs ${getStatusBadge(item.status)}`}
                       >
                         {item.status}
                       </span>
@@ -194,7 +213,6 @@ const AppliedChoices = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };

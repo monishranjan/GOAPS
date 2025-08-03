@@ -1,41 +1,108 @@
-// src/data/appliedChoices.js
-
 const data = [
-  { institute: "NIT Tiruchirappalli", programs: ["CSE", "AI & DS"] },
-  { institute: "NIT Surathkal", programs: ["CSE", "AI & DS"] },
-  { institute: "NIT Warangal", programs: ["CSE", "AI & DS"] },
-  { institute: "IIT Dhanbad", programs: ["CSE", "AI & DS"] },
-  { institute: "NIT Rourkela", programs: ["CSE"] },
-  { institute: "DTU", programs: ["CSE", "Software Engineering", "IT", "AI & ML", "Data Science"] },
-  { institute: "IIT Jammu", programs: ["CSE", "AI & DS"] },
-  { institute: "IIT Jodhpur", programs: ["CSE", "AI & DS"] },
-  { institute: "NIT Calicut", programs: ["CSE"] },
-  { institute: "NIT Jaipur", programs: ["CSE"] },
-  { institute: "NIT Silchar", programs: ["CSE"] },
-  { institute: "NIT Mizoram", programs: ["CSE"] },
-  { institute: "NIT Raipur", programs: ["CSE"] },
+  {
+    institute: "NIT Tiruchirappalli",
+    programs: [
+      { name: "CSE", status: "Rejected" },
+      { name: "Data Science", status: "Approved" },
+      { name: "Artificial Intelligence", status: "Rejected" },
+    ],
+  },
+  {
+    institute: "NIT Surathkal",
+    programs: [
+      { name: "CSE", status: "Rejected" },
+      { name: "Software Engineering", status: "Rejected" },
+      { name: "AI & ML", status: "Rejected" },
+    ],
+  },
+  {
+    institute: "NIT Warangal",
+    programs: [
+      { name: "CSE", status: "Rejected" },
+      { name: "Data Science", status: "Rejected" },
+      { name: "Cybersecurity", status: "Approved" },
+    ],
+  },
+  {
+    institute: "IIT Dhanbad",
+    programs: [
+      { name: "CSE", status: "Rejected" },
+      { name: "Artificial Intelligence", status: "Rejected" },
+      { name: "Information Security", status: "Rejected" },
+    ],
+  },
+  {
+    institute: "NIT Rourkela",
+    programs: [
+      { name: "CSE", status: "Rejected" },
+      { name: "AI & Data Science", status: "Rejected" },
+      { name: "Data Analytics", status: "Rejected" },
+    ],
+  },
+  {
+    institute: "DTU",
+    programs: [
+      { name: "Software Engineering", status: "Rejected" },
+      { name: "Information Technology", status: "Approved" },
+      { name: "CSE", status: "Rejected" },
+      { name: "AI & ML", status: "Rejected" },
+    ],
+  },
+  {
+    institute: "IIT Jammu",
+    programs: [
+      { name: "CSE", status: "Rejected" },
+      { name: "Cybersecurity", status: "Rejected" },
+      { name: "AI & Data Science", status: "Rejected" },
+    ],
+  },
+  {
+    institute: "IIT Jodhpur",
+    programs: [
+      { name: "CSE", status: "Rejected" },
+      { name: "Artificial Intelligence", status: "Rejected" },
+      { name: "Software Engineering", status: "Rejected" },
+    ],
+  },
+  {
+    institute: "NIT Meghalaya",
+    programs: [
+      { name: "Data Science", status: "Rejected" },
+      { name: "CSE", status: "Rejected" },
+    ],
+  },
+  {
+    institute: "NIT Agartala",
+    programs: [
+      { name: "CSE", status: "Rejected" },
+      { name: "Artificial Intelligence", status: "Rejected" },
+    ],
+  },
+  {
+    institute: "State Government Engineering College Bhopal",
+    programs: [
+      { name: "Information Technology", status: "Approved" },
+      { name: "CSE", status: "Rejected" },
+    ],
+  },
 ];
 
-export const appliedChoices = Array.from({ length: 25 }, (_, idx) => {
-  const instituteIdx = idx % data.length;
-  const { institute, programs } = data[instituteIdx];
-  const program = programs[idx % programs.length];
+// Generate applied choices from the above data
+export const appliedChoices = [];
 
-  const status =
-    idx < 4
-      ? "Rejected"
-      : idx % 5 === 0
-      ? "Partially Selected"
-      : idx % 3 === 0
-      ? "Pending"
-      : "Applied";
+let choiceNumber = 1;
 
-  return {
-    institute,
-    program: `M.Tech ${program}`,
-    address: `Institute Address ${idx + 1}`,
-    pincode: `${560100 + idx}`,
-    choiceNumber: idx + 1,
-    status,
-  };
+data.forEach(({ institute, programs }) => {
+  programs.forEach(({ name, status }) => {
+    appliedChoices.push({
+      institute,
+      program: `M.Tech ${name}`,
+      address: `Institute Address ${choiceNumber}`,
+      pincode: `${560100 + choiceNumber}`,
+      choiceNumber,
+      status,
+    });
+
+    choiceNumber++;
+  });
 });
