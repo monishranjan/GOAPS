@@ -3,12 +3,12 @@ import { GoDotFill } from "react-icons/go";
 
 const newsList = [
   {
-    title: "Tentative Seat Vacancy for Special Rounds 2025",
-    url: "https://ccmt.admissions.nic.in/document/tentative-seat-vacancy-for-special-rounds-2025/",
-    date: "Updated on 07:46 PM of 11th July, 2025",
+    title: "Seat Allotment Result has been Declared",
+    url: "/admissions",
+    date: "Updated on 09:46 PM of 2nd August, 2025",
   },
   {
-    title: "Schedule 2025",
+    title: "Announcement",
     url: "https://ccmt.admissions.nic.in/document/schedule-2025/",
     date: "Updated on 05:12 PM of 15th May, 2025",
   },
@@ -32,7 +32,7 @@ const NewsEvents = () => {
           <li key={index} className="flex flex-col">
             <a
               href={item.url}
-              className="hover:underline text-left text-sm text-black flex items-center gap-2"
+              className="text-left text-sm text-black flex items-center gap-2 cursor-default"
               target="_blank"
               rel="noopener noreferrer"
             ><GoDotFill size={9}/>

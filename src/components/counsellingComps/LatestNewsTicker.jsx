@@ -2,12 +2,11 @@ import React from "react";
 import Slider from "react-slick";
 
 const newsItems = [
-  "Seat allotment result of Special Round II has been declared.",
-  "Round 1 Counselling to start from 25th July 2025.",
-  "Uploading of documents for Round 1 ends on 29th July.",
-  "Candidates must check institute reporting instructions.",
-  "Refund process for Round 2 will start on 10th August.",
-  "Round 3 registration opens on 14th August.",
+  "Seat allotment result has been declared.",
+  "Choice locking for colleges and programs will end on 5th August.",
+  "Document verification will start from 6th August.",
+  "Special Round registration opens on 7th August.",
+  "Candidates must carefully review institute reporting guidelines.",
 ];
 
 const LatestNewsTicker = () => {

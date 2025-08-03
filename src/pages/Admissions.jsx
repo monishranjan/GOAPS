@@ -1,8 +1,13 @@
+import React, { useEffect } from "react";
+
 import Header from "../components/Admissions/Header.jsx";
 import Footer from "../components/Admissions/Footer.jsx";
 import LoginBox from "../components/Admissions/LoginBox.jsx";
 
 function Admissions() {
+  useEffect(() => {
+      document.title = "Online Counselling System";
+    }, []);
   return (
     <div className="min-h-screen">
       <Header />

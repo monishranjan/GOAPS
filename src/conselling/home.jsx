@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import TopBar from "../components/counsellingComps/CounsellingTopbar";
@@ -10,6 +10,10 @@ import PublicNotices from "../components/counsellingComps/CounsellingPublicNotic
 import Footer from "../components/Footer";
 
 const CounsellingHome = () => {
+  useEffect(() => {
+    document.title = "CENTRALIZED COUNSELLING FOR M.TECH./ M.ARCH./ M.PLAN. ADMISSIONS | India";
+  }, []);
+
   return (
     <main className="min-h-screen">
       <TopBar />
@@ -25,7 +29,7 @@ const CounsellingHome = () => {
               <p className="text-sm text-justify">
                 CCMT-2025 is a common platform for candidates to apply for
                 M.Tech./ M.Arch./ M.Plan. programmes, based on their GATE score
-                of years 2023, 2024 and 2025, in NITs, IIEST Shibpur, and some
+                of years 2024, 2024 and 2025, in NITs, IIEST Shibpur, and some
                 IIITs and CFTIs (For details, please refer to the list of
                 Participating Institutes on CCMT website).
               </p>
@@ -41,12 +45,12 @@ const CounsellingHome = () => {
               <ul className="list-disc pl-5 text-sm space-y-3 mb-3">
                 <li>
                   <a
-                    href="https://example.com/tentative-seat-vacancy"
+                    href="https://admissions.nic.in/CCMT/Applicant/root/Home.aspx?enc=89xw0ctRCXfaXHy3CACizEsgHPjuaF4gWgIcbO8+kmb1tcLtg1zW34FV4jC49Zqwkaa7YGd5s1r0RcJuudOyqA=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline hover:cursor-pointer"
                   >
-                    Tentative Seat Vacancy for Special Rounds 2023
+                    Online Registeration for National Spot Round (NSR)
                   </a>
                 </li>
                 <li>
@@ -54,22 +58,22 @@ const CounsellingHome = () => {
                     to="/admissions"
                     className="hover:underline hover:cursor-pointer"
                   >
-                    View Seat allotment result of Round 5 (Special Round II)
+                    View Seat Allotment Result
                   </Link>
                 </li>
                 <li>
                   <a
-                    href="https://example.com/seat-matrix-2023"
+                    href="https://admissions.nic.in/CCMT/Applicant/Report/SeatMatrixForm_CC.aspx?boardid=105012521"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline hover:cursor-pointer"
                   >
-                    Seat Matrix in Regular Rounds 2023
+                    Seat Matrix in Regular Rounds 2025
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://example.com/participating-institutes-fee"
+                    href="https://admissions.nic.in/ccmt/applicant/report/ViewPIBalanceFeeList.aspx?boardid=105012521"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline hover:cursor-pointer"
@@ -79,7 +83,7 @@ const CounsellingHome = () => {
                 </li>
                 <li>
                   <a
-                    href="https://example.com/mapping-details"
+                    href="https://admissions.nic.in/ccmt/applicant/report/SeatMapping.aspx?boardid=105012521"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline hover:cursor-pointer"
@@ -90,7 +94,7 @@ const CounsellingHome = () => {
                 </li>
                 <li>
                   <a
-                    href="https://example.com/special-eligibility"
+                    href="https://admissions.nic.in/ccmt/applicant/report/ViewSpecialEligibility.aspx?enc=Nm7QwHILXclJQSv2YVS+7oyfr3QTMnD485kebzU4RQjHPShCZV1JNhAqXFSs1WVi"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:underline hover:cursor-pointer"

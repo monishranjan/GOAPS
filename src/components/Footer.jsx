@@ -2,7 +2,7 @@ import React from "react";
 import { BiIdCard } from "react-icons/bi";
 
 const usefulLinks = [
-  { label: "GATE", href: "https://gate.iitkgp.ac.in/" },
+  { label: "GATE", href: "/" },
   { label: "CCMN", href: "http://ccmn.admissions.nic.in" },
   {
     label: "CCMT-CCMN-CSAB-DASA Promotions",

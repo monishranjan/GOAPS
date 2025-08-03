@@ -5,7 +5,7 @@ const newsList = [
   {
     title:
       "Important Update on Qualifying Degree Mapping/Corrections - CCMT-2025 & CCMN-2025",
-    url: "https://ccmt.admissions.nic.in/document/tentative-seat-vacancy-for-special-rounds-2025/",
+    url: "https://cdnbbsr.s3waas.gov.in/s301894d6f048493d2cacde3c579c315a3/uploads/2025/05/2025052863.pdf",
   },
 ];
 
