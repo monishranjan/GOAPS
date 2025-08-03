@@ -41,6 +41,15 @@ const data = [
     ],
   },
   {
+    institute: "NIT Silchar",
+    programs: [
+      { name: "CSE", status: "Rejected" },
+      { name: "AI & ML", status: "Approved" },
+      { name: "Data Science", status: "Rejected" },
+      { name: "Data Analytics", status: "Rejected" },
+    ],
+  },
+  {
     institute: "DTU",
     programs: [
       { name: "Software Engineering", status: "Rejected" },
