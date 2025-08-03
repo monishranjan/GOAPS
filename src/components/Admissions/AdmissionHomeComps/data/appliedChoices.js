@@ -1,6 +1,6 @@
 const data = [
   {
-    institute: "NIT Tiruchirappalli",
+    institute: "VNIT Nagpur",
     programs: [
       { name: "CSE", status: "Rejected" },
       { name: "Data Science", status: "Approved" },
