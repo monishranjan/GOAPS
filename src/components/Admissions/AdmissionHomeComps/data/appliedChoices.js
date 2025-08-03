@@ -35,8 +35,9 @@ const data = [
     institute: "NIT Rourkela",
     programs: [
       { name: "CSE", status: "Rejected" },
-      { name: "AI & Data Science", status: "Rejected" },
-      { name: "Data Analytics", status: "Rejected" },
+      { name: "Artificial Intelligence", status: "Rejected" },
+      { name: "Data Science", status: "Rejected" },
+      { name: "Data Analytics", status: "Approved" },
     ],
   },
   {
@@ -81,7 +82,7 @@ const data = [
   {
     institute: "State Government Engineering College Bhopal",
     programs: [
-      { name: "Information Technology", status: "Approved" },
+      { name: "Information Technology", status: "Rejected" },
       { name: "CSE", status: "Rejected" },
     ],
   },
