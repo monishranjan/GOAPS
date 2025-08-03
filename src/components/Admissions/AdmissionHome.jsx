@@ -7,7 +7,6 @@ import AppliedChoice from './AdmissionHomeComps/AppliedChoices';
 import CandidateProfiles from './AdmissionHomeComps/CandidateProfile';
 import DocumentVerification from './AdmissionHomeComps/DocumentVerification';
 
-// Dummy Components (Replace these with your actual components)
 const CandidateProfile = () => <CandidateProfiles />;
 const AvailableChoices = () => <div>Available Choices Component</div>;
 const AppliedChoices = () => <AppliedChoice />;
@@ -30,9 +29,8 @@ const AdmissionHome = () => {
 
   const disabledClass = 'text-gray-400 cursor-not-allowed opacity-50';
 
-  // Set enable/disable logic per requirement
-  const isEnabled = (section) => section === 'CandidateProfile' || section === 'AppliedChoices' || section === 'DocumentVerification';
-
+  const isEnabled = (section) =>
+    section === 'CandidateProfile' || section === 'AppliedChoices' || section === 'DocumentVerification';
 
   const renderComponent = () => {
     switch (activeSection) {
@@ -77,8 +75,9 @@ const AdmissionHome = () => {
                 <li
                   key={key}
                   onClick={() => isEnabled(key) && setActiveSection(key)}
-                  className={`px-4 py-2 border-b last:border-b-0 ${isEnabled(key) ? navItemClass(key) : disabledClass
-                    }`}
+                  className={`px-4 py-2 border-b last:border-b-0 ${
+                    isEnabled(key) ? navItemClass(key) : disabledClass
+                  }`}
                 >
                   {label}
                 </li>
@@ -127,6 +126,12 @@ const AdmissionHome = () => {
 
         {/* RIGHT SIDE */}
         <div className="w-9/12 bg-white border rounded shadow p-5 max-h-screen overflow-y-auto">
+          {/* Notice */}
+          <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded mb-5">
+            <p className="font-semibold mb-1">Notice:</p>
+            <p>Please go to <span className="font-medium">Document Verification</span> to send all your documents for verification.</p>
+          </div>
+
           {renderComponent()}
         </div>
       </main>
