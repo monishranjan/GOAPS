@@ -4,7 +4,7 @@ const data = [
     programs: [
       { name: "CSE", status: "Rejected" },
       { name: "Data Science", status: "Approved" },
-      { name: "Artificial Intelligence", status: "Rejected" },
+      { name: "Artificial Intelligence", status: "Approved" },
     ],
   },
   {
